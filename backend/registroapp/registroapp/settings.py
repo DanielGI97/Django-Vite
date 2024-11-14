@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_vite',
+    'registros',
 ]
 
 MIDDLEWARE = [
@@ -50,6 +53,13 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'registroapp.urls'
+
+DJANGO_VITE = {
+    "DEV_MODE": True if DEBUG else False,  # Devuelve un bool consistente
+    "STATIC_URL_PREFIX": "/static/",  # Prefijo de URL válido para archivos estáticos
+    "BUILD_DIR": os.path.join(BASE_DIR, "registros", "static", "registros"),
+    "SERVER_URL": "http://localhost:5173" if DEBUG else "",  # URL del servidor en desarrollo
+}
 
 TEMPLATES = [
     {
@@ -116,6 +126,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR,"registros/static"),
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
