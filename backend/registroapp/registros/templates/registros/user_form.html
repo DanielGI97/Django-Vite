@@ -1,16 +1,9 @@
 <!-- templates/registros/user_form.html -->
 {% extends 'registros/base.html' %}
-{% load django_vite %}
 
 {% block title %}Formulario de Usuario{% endblock %}
 
 {% block content %}
-    <div id="user-form"></div>
-    {% vite_asset 'UserForm.js' %}
-    <script>
-        // Montamos el componente React en el div
-        const rootElement = document.getElementById('user-form');
-        const root = ReactDOM.createRoot(rootElement);
-        root.render(React.createElement(UserForm));
-    </script>
+    <h1>Registro de Usuario</h1>
+    <div id="register-root"></div>
 {% endblock %}

@@ -6,7 +6,6 @@
 
 {% block content %}
     <div id="data-table"></div>
-    {% vite_asset 'DataTable.js' %}
     <script>
         // Pasamos los datos de Django al componente React
         const djangoData = {{ data|safe }};

@@ -1,13 +1,20 @@
 <!-- templates/registros/base.html -->
-{% load django_vite %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock %}</title>
-    {% vite_hmr_client %}
-    {% vite_asset 'main.js' %}
+    <!--{% if debug %}-->
+        <!-- Scripts de Vite en desarrollo -->
+    <script type="module" src="http://127.0.0.1:5173/@vite/client"></script>
+    <script type="module" src="http://127.0.0.1:5173/src/main.jsx"></script>
+    
+    <!--{% else %}
+        Para producción, usaremos los estáticos construidos
+        {% load static %}
+        <script type="module" src="{% static 'registrosapp/dist/assets/index.js' %}"></script>
+    {% endif %}-->
 </head>
 <body>
     {% block content %}{% endblock %}
