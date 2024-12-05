@@ -7,14 +7,14 @@
     <title>{% block title %}{% endblock %}</title>
     <!--{% if debug %}-->
         <!-- Scripts de Vite en desarrollo -->
-    <script type="module" src="http://127.0.0.1:5173/@vite/client"></script>
-    <script type="module" src="http://127.0.0.1:5173/src/main.jsx"></script>
     
-    <!--{% else %}
-        Para producción, usaremos los estáticos construidos
-        {% load static %}
-        <script type="module" src="{% static 'registrosapp/dist/assets/index.js' %}"></script>
-    {% endif %}-->
+    <!--<script type="module" src="http://127.0.0.1:5173/@vite/client"></script>
+    <script type="module" src="http://127.0.0.1:5173/src/main.jsx"></script>-->
+    <!--{% else %}-->
+        <!--Para producción, usaremos los estáticos construidos-->
+    {% load static %}
+        <!--<script type="module" src="{% static 'registrosapp/dist/assets/index-DZw50-r6.js' %}"></script>-->
+    <!--{% endif %}-->
 </head>
 <body>
     {% block content %}{% endblock %}

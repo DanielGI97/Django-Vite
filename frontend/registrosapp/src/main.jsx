@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom/client';
 import RegisterForm from './components/UserForm/RegisterForm';
 import Hello from './components/Hello';
 
-ReactDOM.createRoot(document.getElementById('register-root')).render(
-    <React.StrictMode>
+ReactDOM.createRoot(document.getElementById('register_root')).render(
+    <React.Fragment>
         <RegisterForm />
-        <Hello />
-    </React.StrictMode>
+        <h1>Hola desde React</h1>
+    </React.Fragment>
 );
 /*
 ReactDOM.createRoot(document.getElementById('react-root')).render(
@@ -16,3 +16,4 @@ ReactDOM.createRoot(document.getElementById('react-root')).render(
   </React.StrictMode>
 );
 */
+console.log("Hola que tal.")

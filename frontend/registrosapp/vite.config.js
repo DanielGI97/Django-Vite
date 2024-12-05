@@ -20,10 +20,26 @@ export default defineConfig({
     host: '127.0.0.1', // Asegura que Vite esté disponible en localhost
     port: 5173,        // Puerto del servidor de desarrollo
     strictPort: true,  // No cambia el puerto si 5173 ya está en uso
-    /*
+    
     proxy: {
-      '/api': 'http://127.0.0.1:8000', // Proxy para backend de Django
+      // Proxy para backend de Django
+      '/api': {
+        target: 'http://127.0.0.1:8000',
+        changeOrigin: true,
+      }, 
+      '/register-form/': {
+        target : 'http://127.0.0.1:8000',
+        changeOrigin: true,
+      }
+
     },
-    */
+    
   },
-});
+  build: {
+    outDir: path.resolve(__dirname, '../../backend/registroapp/registros/static/registros/dist'), // Ruta donde se colocará el build
+    emptyOutDir: true, // Limpia la carpeta antes de generar el build
+    rollupOptions: {
+      input: './index.html', // Archivo principal para el build
+    },
+  },
+})
